@@ -1,0 +1,33 @@
+{
+  "name": "text-parser",
+  "version": "1.0.0",
+  "description": "Text parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elariondakta/Text-Parser.git"
+  },
+  "keywords": [
+    "Text",
+    "Parser"
+  ],
+  "author": "Totodore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elariondakta/Text-Parser/issues"
+  },
+  "homepage": "https://github.com/Elariondakta/Text-Parser#readme",
+  "devDependencies": {
+    "electron": "^6.0.3",
+    "electron-installer-flatpak": "^0.8.0",
+    "electron-packager": "^14.0.4",
+    "jquery": "^3.4.1"
+  },
+  "dependencies": {
+    "material-components-web": "^3.1.1"
+  }
+}
