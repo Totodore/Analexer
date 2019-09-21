@@ -1,8 +1,8 @@
-const { app, BrowserWindow, Menu} = require('electron');
-
+const {app, BrowserWindow, Menu} = require('electron');
 // Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
 // fermee automatiquement quand l'objet JavaScript sera garbage collected.
 let win;
+let filterSave;
 
 function createWindow () {
       // Créer le browser window.
@@ -18,7 +18,6 @@ function createWindow () {
         }
     });
     win.maximize();
-    // win.webContents.openDevTools();
     // and load the index.html of the app.
     win.loadFile('index.html');
     // Émit lorsque la fenêtre est fermée.
@@ -36,8 +35,43 @@ function createWindow () {
 app.on('ready', () => {
     createWindow();
     // win.setMenu(null);
+    const template = [{
+        label: "Fichier",
+        submenu: [
+            {
+                label: "Quitter",
+                click: () => {
+                    app.quit();
+                }
+            }
+        ] 
+    },
+    {
+        label: "Filtres",
+        submenu: [
+            {
+                label: "Ajouter un filtre",
+                click: () => {
+
+                }
+            },
+            {
+                label: "Supprimer tous les filtres",
+                click: () => {
+                    // MenuHandler.removeFilters();
+                }
+            },
+            {
+                label: "Sauvegarder les filtres",
+                click: () => {
+
+                }
+            }
+        ]
+    }];
     const menu = Menu.buildFromTemplate([]);
     win.setMenu(menu);
+    win.webContents.openDevTools();
 });
 
 // Quitte l'application quand toutes les fenêtres sont fermées.

@@ -2,9 +2,12 @@
     src: url(./font/Poppins-Regular.ttf);
     font-family: poppins;
 }
-ul, li {
+
+ul,
+li {
     list-style: none;
 }
+
 body {
     display: flex;
     background-color: rgb(44, 44, 44);
@@ -13,12 +16,30 @@ body {
     padding: 0;
     overflow: hidden;
 }
-.text_wrapper, .stats_wrapper {
+
+.text_wrapper,
+.stats_wrapper {
     width: 50%;
     margin: 10px;
     position: relative;
 }
-.text_wrapper textarea, .stats_wrapper ul {
+
+.word_stats_wrapper {
+    padding: 3px;
+    transition: all 400ms;
+    box-sizing: border-box;
+    height: calc(100% - 140px);
+    margin-top: 20px;
+    color: white;
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.text_wrapper textarea,
+.global_stats ul,
+.word_stat .inner,
+.word_filter .inner {
     width: 100%;
     height: 100%;
     border: 3px solid white;
@@ -31,37 +52,101 @@ body {
     box-sizing: border-box;
     resize: none;
 }
-.word_stat {
-    border-radius: 6px;
-    border: 3px solid white;
-    padding: 3px;
+
+.word_stat,
+.word_filter {
+    width: 49%;
     transition: all 400ms;
-    box-sizing: border-box;
-    height: calc( 100% - 140px );
-    margin-top: 20px;
-    color: white;
-    position: relative;
-    
+    border-radius: 6px;
 }
-.word_stat .inner {
+
+.word_filter {
+    margin-left: 2%;
+    position: relative;
+}
+
+.word_stat .inner,
+.word_filter .inner {
     overflow-y: auto;
     width: 100%;
     height: 100%;
 }
+.word_filter .inner {
+    padding-top: 34px;
+}
+.word_filter .new_filter {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    padding-left: 13px;
+    font-family: poppins;
+    border-bottom: 2px solid white;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 300ms;
+    background-color: rgba(0, 0, 0, 0.199);
+}
+.word_filter .new_filter:hover {
+    padding-left: 25px;
+}
+.word_filter .inner > .element {
+    height: 32px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: poppins;
+    cursor: text;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    margin-bottom: 3px;
+}
+.word_filter .inner > .element > input {
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    margin-right: 7px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    font-family: poppins;
+    color: white;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.word_filter .inner > .element > i {
+    font-style: normal;
+    font-family: poppins;
+    font-size: 1.6em;
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+}
+
 .word_stat .el {
     height: 25px;
     word-wrap: wrap;
     padding-left: 10px;
 }
+
 .word_stat span {
     top: -13;
 }
-.text_wrapper textarea:hover, .stats_wrapper .word_stat:hover, .stats_wrapper ul:hover {
+
+.text_wrapper textarea:hover,
+.word_stat:hover,
+.word_filter:hover,
+.global_stats:hover {
     box-shadow: 0 0 12px -2px white;
 }
+
 .text_wrapper textarea:focus {
     box-shadow: 0 0 12px -2px white;
 }
+
 .label {
     font-family: poppins;
     position: absolute;
@@ -74,10 +159,34 @@ body {
     background-color: rgb(44, 44, 44);
     border-radius: 6px;
 }
-.stats_wrapper .label {
+
+.global_stats .label,
+.word_stat .label,
+.word_filter .label {
     top: -15px;
     font-size: 0.8em;
 }
+
+.word_stat .back {
+    top: -16px;
+    left: 0px;
+    position: absolute;
+    border-radius: 50%;
+    background-image: url(./img/24px.svg);
+    background-size: 100% 100%;
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    transition: all 400ms;
+    background-position-x: 5px;
+    background-color: rgb(107, 107, 107);
+    opacity: 0;
+}
+.word_stat .back:hover {
+    background-color: white;
+}
+
 .separation {
     width: 3px;
     height: 90%;
@@ -87,11 +196,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.stats_wrapper ul {
+
+.global_stats {
+    transition: all 400ms;
+}
+
+.global_stats ul {
     height: 115px;
     margin: 0;
 }
-.stats_wrapper li {
+
+.global_stats li {
     width: 100%;
     height: auto;
     padding-left: 10px;
