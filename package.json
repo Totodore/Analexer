@@ -24,7 +24,7 @@
     "electron": "^6.0.3",
     "electron-installer-flatpak": "^0.8.0",
     "electron-packager": "^14.0.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "material-components-web": "^3.1.1",
     "textract": "^2.5.0"
   }
